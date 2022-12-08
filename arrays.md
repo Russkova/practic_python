@@ -1,6 +1,6 @@
 # Arrays
-+ [Merge two sorted array](merge-two-sorted-array)
-+ [Squares of sorted array](squares-of-sorted-array)
++ [Merge two sorted array](#merge-two-sorted-array)
++ [Squares of sorted array](#squares-of-sorted-array)
 ## Merge two sorted array
 Слияние двух отсортированных массива в один отсортированный массив за О(n).
 
