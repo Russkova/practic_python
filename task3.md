@@ -46,6 +46,7 @@ ans = [num for num in range(1, 10001) if str(num) == str(num)[::-1]]
 Посчитать количество пробелов в строке.
 
 ```python
+string = "A simple sentence has the most basic elements that make it a sentence: a subject a verb and a completed thought"
 ans = len([sign for sign in string if sign == ' '])
 
 ```
@@ -56,6 +57,7 @@ ans = len([sign for sign in string if sign == ' '])
 Есть любая последовательность непробельных символов латинского алфавита, удалить все гласные из этого слова
 
 ```python
+str = "fserdhjdsnVFTRBRvkjdfsru"
 ans = str.translate({ord(i): None for i in 'aeiouAEIOU'})
 ```
 
@@ -65,6 +67,7 @@ ans = str.translate({ord(i): None for i in 'aeiouAEIOU'})
 На входе строка со словами, разделенными через 1 пробел. Найти все слова, длина которых не больше 5
 
 ```python
+string = "A simple sentence has the most basic elements that make it a sentence: a subject a verb and a completed thought"
 ans = [word for word in string.split() if len(word) < 6]
 ```
 
@@ -76,6 +79,7 @@ ans = [word for word in string.split() if len(word) < 6]
 
 
 ```python
+string = "A simple sentence has the most basic elements that make it a sentence: a subject a verb and a completed thought"
 ans = {word: len(word) for word in string.split()}
 ```
 
@@ -86,7 +90,8 @@ ans = {word: len(word) for word in string.split()}
 
 
 ```python
-ans = list(set([sign for sign in string]))
+string = "fcnreakjseADFHYTvn37y4rhbav"
+ans = list(set([sign for sign in string.lower() if ord(sign) >= ord('a') and  ord(sign) <= ord('z') ]))
 ```
 
 
@@ -95,6 +100,8 @@ ans = list(set([sign for sign in string]))
 
 
 ```python
+numbers = [3, 5, 6, 8]
+ans = list(map(lambda x: x * x, numbers))
 
 ```
 
@@ -105,16 +112,17 @@ ans = list(set([sign for sign in string]))
 
 
 ```python
-
+points = [(1, 1), (2, 3), (5, 3), (1, 3), (0, -2), (-5, 9)]
+ans = {point: (point[0]**2 + point[1]**2)**(1/2) for point in points if point[0]*5 - 2 == point[1]}
 ```
 
 
 
 ## Problem 11
-Возвести в квадрат все четные числа от 2 до 27. На выходе список.
+Возвести в квадрат все чётные числа от 2 до 27. На выходе список.
 
 ```python
-
+ans = [num ** 2 for num in range(2, 28, 2)]
 ```
 
 
@@ -125,7 +133,8 @@ ans = list(set([sign for sign in string]))
 
 
 ```python
-
+points = [(1, 1), (2, 3), (5, 3), (1, 3), (0, -2), (-5, 9)]
+ans = max([(point[0]**2 + point[1]**2)**(1/2) for point in points if point[0]>=0 and point[1 >= 0]])
 ```
 
 
@@ -135,7 +144,9 @@ ans = list(set([sign for sign in string]))
 На входе два списка чисел nums_first = [1, 2, 3, 5, 8] и nums_second = [2, 4, 8, 16, 32]. Получить пары сумм и разниц, [(3, -1), (6, -2), (11, -5), ...]
 
 ```python
-
+nums_first = [1, 2, 3, 5, 8] 
+nums_second = [2, 4, 8, 16, 32]
+ans = [(nums_first[i] + nums_second[i], nums_first[i] - nums_second[i]) for i in range(len(nums_first))]
 ```
 
 
@@ -147,6 +158,8 @@ ans = list(set([sign for sign in string]))
 
 
 ```python
+numbers = ['43141', '32441', '431', '4154', '43121']
+ans = [str(int(num)**2) for num in numbers if int(num) % 2 == 0]
 
 ```
 
@@ -164,6 +177,9 @@ input_str = """name,Petya,Vasya,Masha,Vova grade,5,5,8,3 subject,math,language,p
 
 ```python
 
+ans = [{line.split(',')[0]: line.split(',')[i] for line in input_str.split('\n')} for i in range(1, len(input_str.split(
+    '\n')[0].split(',')))]
+
 ```
 
 
@@ -174,3 +190,7 @@ input_str = """name,Petya,Vasya,Masha,Vova grade,5,5,8,3 subject,math,language,p
 a = [[11.9, 12.2, 12.9], [15.3, 15.1, 15.1], [16.3, 16.5, 16.5], [17.7, 17.5, 18.1]]
 
 result = [61.2, 61.3, 62.6]
+
+```python
+result = [sum(a[i][j] for i in range(len(a))) for j in range(len(a[0]))]
+```
