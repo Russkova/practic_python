@@ -4,28 +4,12 @@ class Complex:
         self.real = real
         self.imag = imag
 
-    def add(self, number):
-        return Complex(self.real + number.real, self.imag + number.imag)
 
-    def sub(self, number):
-        return Complex(self.real - number.real, self.imag - number.imag)
-
-    def mul(self, number):
-        return Complex(self.real * number.real - self.imag * number.imag,
-                       self.imag * number.real + self.real * number.imag)
-
-    def div(self, number):
-        return Complex(
-            (self.real * number.real + self.imag * number.imag) / (number.real ** 2 + number.imag ** 2),
-            (number.real * self.imag - self.real * number.imag) / (number.real ** 2 + number.imag ** 2))
-
-    def abs(self):
+    def __abs__(self):
         return (self.real ** 2 + self.imag ** 2) ** (1 / 2)
 
-
-    def __eq__(self, number):
-        return self.real == number.real and self.imag == number.imag
-
+    def __eq__(self, other):
+        return str(self) == str(other)
 
     def __str__(self):
         if self.real == 0:
@@ -40,4 +24,20 @@ class Complex:
             return str(self.real) + '+' + str(self.imag) + 'i'
         if self.imag < 0:
             return str(self.real) + str(self.imag) + 'i'
+
+
+    def __add__(self, other):
+        return Complex(self.real + other.real, self.imag + other.imag)
+
+    def __sub__(self, other):
+        return Complex(self.real - other.real, self.imag - other.imag)
+
+    def __mul__(self, other):
+        return Complex(self.real * other.real - self.imag * other.imag,
+                       self.imag * other.real + self.real * other.imag)
+
+    def __truediv__(self, other):
+        return Complex(
+            (self.real * other.real + self.imag * other.imag) / (other.real ** 2 + other.imag ** 2),
+            (other.real * self.imag - self.real * other.imag) / (other.real ** 2 + other.imag ** 2))
 
