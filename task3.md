@@ -27,9 +27,9 @@ ans = [num for num in range(1001) if num % 17 == 0]
 Найти все числа от 1 до 1000, которые содержат в себе цифру 2.
 
 ```python
-ans = [num for num in range(1001) if num % 10 == 2 or num // 10 % 10 == 2 or num // 100 % 10 == 2]
+ans = [num for num in range(1, 1001) if num % 10 == 2 or num // 10 % 10 == 2 or num // 100 % 10 == 2]
 
-ans = [num for num in range(1001) if '2' in str(num)]
+ans = [num for num in range(1000) if '2' in str(num)]
 
 ```
 
@@ -38,7 +38,7 @@ ans = [num for num in range(1001) if '2' in str(num)]
 Найти все числа от 1 до 10000, которые являются палиндромом.
 
 ```python
-
+ans = [num for num in range(1, 10001) if str(num) == str(num)[::-1]]
 ```
 
 
@@ -46,6 +46,7 @@ ans = [num for num in range(1001) if '2' in str(num)]
 Посчитать количество пробелов в строке.
 
 ```python
+ans = len([sign for sign in string if sign == ' '])
 
 ```
 
@@ -55,7 +56,7 @@ ans = [num for num in range(1001) if '2' in str(num)]
 Есть любая последовательность непробельных символов латинского алфавита, удалить все гласные из этого слова
 
 ```python
-
+ans = str.translate({ord(i): None for i in 'aeiouAEIOU'})
 ```
 
 
@@ -64,7 +65,7 @@ ans = [num for num in range(1001) if '2' in str(num)]
 На входе строка со словами, разделенными через 1 пробел. Найти все слова, длина которых не больше 5
 
 ```python
-
+ans = [word for word in string.split() if len(word) < 6]
 ```
 
 
@@ -75,7 +76,7 @@ ans = [num for num in range(1001) if '2' in str(num)]
 
 
 ```python
-
+ans = {word: len(word) for word in string.split()}
 ```
 
 
@@ -85,7 +86,7 @@ ans = [num for num in range(1001) if '2' in str(num)]
 
 
 ```python
-
+ans = list(set([sign for sign in string]))
 ```
 
 
